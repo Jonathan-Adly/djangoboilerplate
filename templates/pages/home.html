@@ -2,6 +2,27 @@
 {% load static %}
 
 {% block content %}
-<p> Hello, World! </p>
+<div class="container-fluid">
+<div class="text-center row align-items-center justify-content-center h-75">
+    <div class= "content col-6"> 
+        <img src="{% static 'images/masthead.svg' %}" class="img-fluid w-300" alt="" >
+        <h1 class="m-20 text-primary font-weight-bold font-size-24"> HTMX/Django Boilerplate </h1>
+        <p> A Modern Single Page Applications. No complicated JS frameworks necessary </p>
+        
+        <button 
+        class="btn btn-primary mt-10" 
+        role="button" 
+        hx-get="{% url 'home' %}"
+        hx-trigger="click"
+        hx-target="#content"
+        hx-swap="outerHTML"
+        hx-push-url="true">
+        Start Building 
+        </button> 
+    
+    </div>
+</div>
 
+    
+</div>
 {% endblock %}

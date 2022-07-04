@@ -1,0 +1,65 @@
+<nav class="navbar" hx-boost= "true">
+            <!-- big font on big screens-->
+            <a href="{% url 'home' %}" class="navbar-brand ml-10 hidden-sm-and-down">
+              Project Name
+            </a>
+            <!-- small font on small screens -->
+            <a href="{% url 'home' %}" class="navbar-brand ml-10 font-size-12 hidden-md-and-up">
+            Project Name
+            </a>
+            
+            <ul class="navbar-nav hidden-sm-and-down">
+                <li class="nav-item">
+                    <a href="{% url 'home' %}" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                 <a href="#" class="nav-link"> Item-1 </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href= "#" class="nav-link">Item-2</a>
+                </li>
+                {% if request.user.is_staff %}
+                 <li class="nav-item">
+                 <a href="#" class="nav-link"> Staff only </a>
+                </li>
+                {% endif %}
+            </ul>
+            
+                
+                <div class="dropdown hidden-md-and-up ml-auto">
+                    <button class="btn navbar-menu-btn" data-toggle="dropdown" type="button" id="navbar-dropdown-toggle-btn" aria-haspopup="true" aria-expanded="false">
+                        <span class="text">Menu</span>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-dropdown-toggle-btn">
+                        <a  
+                        class="dropdown-item"
+                        href="{% url 'home' %}"
+                        >
+                          Home
+                        </a>
+                        <a 
+                        class="dropdown-item"
+                        href="#"
+                        >
+                        Item 1
+                        </a>
+                       <a 
+                        class="dropdown-item"
+                        href="#"
+                        > Item 2
+                        </a>
+                        {% if request.user.is_staff %}
+                        <a 
+                        class="dropdown-item"
+                        href="#"
+                        >
+                        Staff only
+                        </a>
+                        {% endif %}
+                        <div class="dropdown-divider"></div>
+                  
+                    </div>
+                </div>
+            </div>
+        </nav>
